@@ -1,7 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Exo'
+);
+
+@include mat-core($custom-typography);
+
 html, body {
   margin: 0;
   padding: 0;
-
   height: 100%;
+}
+
+body {
+  background-color: #d6d5d3;
+  margin: 0;
+  app-root * {
+    font-family: 'Exo', sans-serif;
+  }
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 15px;
+}
+
+.top-movers .mat-card {
+  padding: 10px 0 0 0 !important;
+}
+
+.auth-card {
+
+  & .mat-card-header {
+    text-align: center;
+    border-bottom: solid 1px #c3c3c3;
+    & .mat-card-header-text {
+      margin-top: 15px;
+      width: 100%;
+    }
+  }
+
+  .mat-card-content, .mat-card-actions {
+    padding: 15px !important;
+  }
 }

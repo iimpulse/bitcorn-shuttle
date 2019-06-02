@@ -1,0 +1,55 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.login-card {
+  width: 400px;
+  border-radius: 0;
+  margin: -10rem auto;
+  padding: 0;
+
+  & .example-form {
+    margin-left: 25%;
+  }
+
+  & .login-btn {
+    border-radius: 0;
+    background-color: #74803a;
+    margin-left: 15px;
+  }
+  & .register-link {
+    float: right;
+    border-radius: 0;
+    box-shadow: unset;
+
+    & .arrow {
+      margin-bottom: 2px;
+    }
+  }
+}
+
+.mat-card-title {
+  font-size: 16px;
+}
+
+.register-card {
+  width: 80%;
+  height: 80%;
+  border-radius: 0;
+  margin: 5% auto 0 auto;
+  padding: 0;
+
+  & .register-link {
+    float: right;
+    border-radius: 0;
+    box-shadow: unset;
+
+    & .arrow {
+      margin-bottom: 2px;
+    }
+  }
+}

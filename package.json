@@ -1,18 +1,22 @@
 {
-  "name": "angular-electron",
-  "version": "5.1.0",
-  "description": "Angular 7 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
+  "name": "bitcorn-shuttle",
+  "version": "0.0.1",
+  "description": "Trading Platform for Binance",
+  "homepage": "https://github.com/iimpulse/bitcorn-shuttle.git",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "Michael Gargano",
+    "email": "mgdlxd@gmail.com"
   },
   "keywords": [
     "angular",
     "angular 7",
     "electron",
     "typescript",
-    "sass"
+    "sass",
+    "binance",
+    "crypto",
+    "bitcorn",
+    "cryptotraderstv"
   ],
   "main": "main.js",
   "private": true,
@@ -21,7 +25,7 @@
     "postinstall:web": "node postinstall-web",
     "postinstall:electron": "node postinstall",
     "ng": "ng",
-    "start": "npm run postinstall:electron && npm-run-all -p ng:serve electron:serve",
+    "start": "npm run postinstall:electron && npm-run-all -p ng:serve electron:develop",
     "build": "npm run postinstall:electron && npm run electron:serve-tsc && ng build",
     "build:dev": "npm run build -- -c dev",
     "build:prod": "npm run build -- -c production",
@@ -33,6 +37,7 @@
     "electron:linux": "npm run build:prod && electron-builder build --linux",
     "electron:windows": "npm run build:prod && electron-builder build --windows",
     "electron:mac": "npm run build:prod && electron-builder build --mac",
+    "electron:develop": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && nodemon --watch ./main.ts --exec \"npm run electron:serve-tsc && electron . \"",
     "test": "npm run postinstall:web && ng test",
     "e2e": "npm run build:prod && mocha --timeout 300000 --require ts-node/register e2e/**/*.spec.ts",
     "version": "conventional-changelog -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
@@ -72,7 +77,6 @@
     "karma-jasmine-html-reporter": "1.4.0",
     "mocha": "6.0.2",
     "npm-run-all": "4.1.5",
-    "rxjs": "6.4.0",
     "spectron": "5.0.0",
     "ts-node": "7.0.1",
     "tslint": "5.11.0",
@@ -80,5 +84,14 @@
     "wait-on": "3.2.0",
     "webdriver-manager": "12.1.0",
     "zone.js": "0.8.29"
+  },
+  "dependencies": {
+    "@angular/animations": "^7.2.7",
+    "@angular/cdk": "^7.3.7",
+    "@angular/flex-layout": "^7.0.0-beta.24",
+    "@angular/material": "^7.3.7",
+    "ng-animate": "^0.3.4",
+    "rxjs": "^6.5.2",
+    "rxjs-compat": "^6.5.2"
   }
 }
