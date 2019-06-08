@@ -6,7 +6,7 @@
 Clone this repository locally :
 
 ``` bash
-git clone https://github.com/maximegris/angular-electron.git
+git clone https://github.com/BITCORNtimes/BITCORNShuttle.git
 ```
 
 Install dependencies with npm :
