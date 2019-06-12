@@ -1,0 +1,58 @@
+.platform-container {
+  height: 100%;
+}
+
+.mat-sidenav {
+  width: 5%;
+
+  &.toggled {
+    width: 8%;
+  }
+  .mat-flat-button{
+    height: 4rem;
+    width: 100%;
+    border-radius: 0;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:first-child {
+      margin-top: 25px;
+    }
+    .material-icons{
+      font-size: 40px;
+    }
+
+    .sidebar-text {
+      font-size: 16px;
+      font-weight: bold;
+      margin-left: 15px;
+    }
+  }
+}
+
+.dark {
+  .mat-sidenav {
+    background: #19334d;
+    color: white;
+
+    .material-icons {
+      color: white;
+    }
+
+    .sidebar-text {
+      color: white;
+    }
+  }
+
+  .mat-flat-button {
+    background: #19334d;
+  }
+}
+
+.light {
+  .mat-sidenav {
+    background: whitesmoke;
+  }
+}

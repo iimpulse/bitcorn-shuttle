@@ -1,3 +1,32 @@
-<p>
-  platform works!
-</p>
+<mat-sidenav-container class="platform-container dark">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" [ngClass]="{'toggled': sidebarToggle}">
+    <button mat-flat-button>
+      <i class="material-icons">
+        account_balance
+      </i>
+      <span [hidden]="!sidebarToggle" class="sidebar-text">Account</span>
+    </button>
+    <button mat-flat-button><i class="material-icons">show_chart</i>
+      <span [hidden]="!sidebarToggle" class="sidebar-text">Trade</span>
+    </button>
+    <button mat-flat-button><i class="material-icons">restore</i>
+      <span [hidden]="!sidebarToggle" class="sidebar-text">History</span>
+    </button>
+    <button mat-flat-button><i class="material-icons">settings</i>
+      <span [hidden]="!sidebarToggle" class="sidebar-text">Settings</span>
+    </button>
+    <div>
+      <button (click)="toggleSidebar()" mat-flat-button>
+        <i *ngIf="!sidebarToggle" class="material-icons">
+            keyboard_arrow_right
+        </i>
+        <i *ngIf="sidebarToggle" class="material-icons">
+          keyboard_arrow_left
+        </i>
+      </button>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

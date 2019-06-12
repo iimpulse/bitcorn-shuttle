@@ -16,7 +16,7 @@ import {Subscription} from 'rxjs';
 export class AppComponent implements OnInit, OnDestroy {
   private userSubscription: Subscription;
   public user: any;
-
+  opened = true;
   constructor(public electronService: ElectronService, private authService: AuthService,
               private router: Router,
               private domSanitizer: DomSanitizer, private translate: TranslateService) {

@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
   }
 
   navigateRegister(): void {
-    this.router.navigate(['/register']);
+    this.router.navigate(['/trade']);
   }
 
   showRegister(): void {
