@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HistoryComponent } from './history/history.component';
 import { AccountComponent } from './account/account.component';
 import { SettingsComponent } from './settings/settings.component';
+import { TradingComponent } from './trading/trading.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,6 @@ import { SettingsComponent } from './settings/settings.component';
     PlatformRoutingModule,
     SharedModule
   ],
-  declarations: [PlatformComponent, HistoryComponent, AccountComponent, SettingsComponent]
+  declarations: [PlatformComponent, HistoryComponent, AccountComponent, SettingsComponent, TradingComponent]
 })
 export class PlatformModule { }

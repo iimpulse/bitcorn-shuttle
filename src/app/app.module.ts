@@ -27,6 +27,7 @@ import {LoginComponent} from './components/auth/login/login.component';
 import {RegisterComponent} from './components/auth/register/register.component';
 import {AuthService} from './components/auth/auth.service';
 import {TokenStorage} from './components/auth/token.storage';
+import {LocalSettingsService} from './providers/local-settings.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -60,7 +61,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [ElectronService, AuthService,
-    TokenStorage],
+    TokenStorage, LocalSettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

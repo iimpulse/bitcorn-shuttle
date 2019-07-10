@@ -61,8 +61,12 @@ export class LoginComponent implements OnInit {
     } : null;
   }
 
+  fakeLogin(): void {
+    this.router.navigate(['/register']);
+  }
+
   navigateRegister(): void {
-    this.router.navigate(['/trade']);
+    this.router.navigate(['/platform/']);
   }
 
   showRegister(): void {

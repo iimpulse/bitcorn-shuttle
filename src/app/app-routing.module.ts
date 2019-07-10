@@ -9,7 +9,7 @@ const routes: Routes = [
         component: HomeComponent
   },
   {
-    path: 'trade',
+    path: 'platform',
     loadChildren: () => import('app/platform/platform.module').then(m => m.PlatformModule)
   }, {
     path: 'admin',

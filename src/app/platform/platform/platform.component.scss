@@ -8,6 +8,7 @@
   &.toggled {
     width: 8%;
   }
+
   .mat-flat-button{
     height: 4rem;
     width: 100%;
@@ -21,7 +22,7 @@
       margin-top: 25px;
     }
     .material-icons{
-      font-size: 40px;
+      font-size: 30px;
     }
 
     .sidebar-text {
@@ -32,27 +33,82 @@
   }
 }
 
+.mat-sidenav-content{
+  padding: 15px;
+  &.toggled {
+    margin-left: 8% !important;
+  }
+}
+
 .dark {
-  .mat-sidenav {
-    background: #19334d;
+  color: white;
+  & .mat-sidenav {
+    background: #2a2a2b;
     color: white;
 
-    .material-icons {
+    & .material-icons {
       color: white;
     }
 
-    .sidebar-text {
+    & .sidebar-text {
       color: white;
+    }
+
+    & .mat-flat-button {
+      background: #2a2a2b;
     }
   }
 
-  .mat-flat-button {
-    background: #19334d;
+  & .mat-drawer-content {
+    background: #3a3a3a !important;
+  }
+
+  & .mat-card {
+    color: white;
+    background: #585858;
+  }
+
+  & .mat-form-field-label, .mat-select-value-text, .mat-card-subtitle {
+    color: white;
+  }
+
+  & .mat-form-field-underline {
+    background-color: white;
+  }
+
+  & .mat-card-content {
+    padding: 15px;
+  }
+
+  & .mat-card-actions {
+    padding-top: 50px;
   }
 }
 
 .light {
-  .mat-sidenav {
-    background: whitesmoke;
+  & .mat-sidenav {
+    background: #b2b2b4;
+    color: black;
+
+    & .material-icons {
+      color: black;
+    }
+
+    & .sidebar-text {
+      color: black;
+    }
+
+    & .mat-flat-button {
+      background: #b2b2b4;
+    }
+
+  }
+
+  & .mat-drawer-content {
+    background: #3a3a3a !important;
+  }
+
+  & .mat-card {
+    background: #212121;
   }
 }

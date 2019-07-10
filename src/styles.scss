@@ -34,6 +34,10 @@ body {
   padding: 10px 0 0 0 !important;
 }
 
+.mat-card {
+  border-radius: 0 !important;
+}
+
 .auth-card {
 
   & .mat-card-header {
@@ -44,8 +48,29 @@ body {
       width: 100%;
     }
   }
-
-  .mat-card-content, .mat-card-actions {
+  .mat-card-content {
     padding: 15px !important;
   }
+
+  .mat-card-actions {
+    padding: 25px 15px !important;
+  }
 }
+
+.mat-form-field-ripple {
+  background-color: #acbc3f !important;
+}
+
+/*.mat-form-field-label {
+  color: #acbc3f !important;
+}*/
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+  background-color: #ff0055 !important;
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: #ff0055 !important;
+}
+
+
