@@ -1,30 +1,36 @@
 import {Injectable, OnInit} from '@angular/core';
+import { BehaviorSubject } from "rxjs";
+import { Configuration } from "../shared/models";
 @Injectable({
   providedIn: 'root'
 })
 export class LocalSettingsService implements OnInit {
 
-  configuration = {
+  defaults = {
+    defaultPage: 'settings',
+    defaultPlatform: '',
+    defaultSidebar: 'descriptive',
+    accounts: [{
+      accountPlatform: "",
+      apiKey: '',
+      accountName: '',
+    }],
     theme: 'dark'
   };
+  $configuration =  new BehaviorSubject<Configuration>(this.defaults);
+
+
   constructor() { }
 
   ngOnInit() {
-
   }
 
   saveConfiguration(config: any ){
-    this.configuration = config;
+    this.$configuration.next(config);
   }
 
-  loadConfigurations(config: any) {
-    if (config !== '') {
-      this.configuration = config;
-    }
-  }
-
-  getConfiguration(): any {
-    return this.configuration;
+  getConfiguration(): BehaviorSubject<Configuration> {
+    return this.$configuration;
   }
 
   getKrakenData(){

@@ -1,3 +1,14 @@
+$dark-background-color: #3a3a3a;
+$dark-card-color: #585858;
+$dark-font-color: white;
+$dark-sidenav-color: #2a2a2b;
+
+$light-background-color:#c7c7c7; 
+$light-font-color: black;
+$light-sidenav-color: whitesmoke;
+
+
+
 .platform-container {
   height: 100%;
 }
@@ -35,45 +46,51 @@
 
 .mat-sidenav-content{
   padding: 15px;
+  margin-left: 5% !important;
   &.toggled {
     margin-left: 8% !important;
   }
 }
 
 .dark {
-  color: white;
+  color: $dark-font-color;
+
   & .mat-sidenav {
-    background: #2a2a2b;
-    color: white;
+    background: $dark-sidenav-color;
+    color: $dark-font-color;
 
     & .material-icons {
-      color: white;
+      color: $dark-font-color;
     }
 
     & .sidebar-text {
-      color: white;
+      color: $dark-font-color;
     }
 
     & .mat-flat-button {
-      background: #2a2a2b;
+      background: $dark-sidenav-color;
     }
   }
 
+  &.mat-drawer-container {
+    background-color: $dark-background-color !important;
+  }
+
   & .mat-drawer-content {
-    background: #3a3a3a !important;
+    background: $dark-background-color !important;
   }
 
   & .mat-card {
-    color: white;
-    background: #585858;
+    color: $dark-font-color;
+    background: $dark-card-color;
   }
 
   & .mat-form-field-label, .mat-select-value-text, .mat-card-subtitle {
-    color: white;
+    color: $dark-font-color;
   }
 
   & .mat-form-field-underline {
-    background-color: white;
+    background-color: $dark-font-color;
   }
 
   & .mat-card-content {
@@ -86,29 +103,30 @@
 }
 
 .light {
+  color: $light-font-color;
+
   & .mat-sidenav {
-    background: #b2b2b4;
-    color: black;
-
-    & .material-icons {
-      color: black;
-    }
-
-    & .sidebar-text {
-      color: black;
-    }
+    background: $light-sidenav-color;
+    color: $light-font-color;
 
     & .mat-flat-button {
-      background: #b2b2b4;
+      background: $light-sidenav-color;
     }
+  }
 
+  &.mat-drawer-container {
+    background-color: $light-background-color !important;
   }
 
   & .mat-drawer-content {
-    background: #3a3a3a !important;
+    background: $light-background-color !important;
   }
 
-  & .mat-card {
-    background: #212121;
+  & .mat-card-content {
+    padding: 15px;
+  }
+
+  & .mat-card-actions {
+    padding-top: 50px;
   }
 }

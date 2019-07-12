@@ -1,6 +1,9 @@
 <mat-card>
   <mat-card-header>
-      <mat-card-title>Settings</mat-card-title>
+      <mat-card-title>
+        Settings
+        <p *ngIf="success" class="success-save">Saved Successfully.</p>
+      </mat-card-title>
       <mat-card-subtitle>
           <p><sup>*</sup><i>The configuration file is saved locally only.</i></p>
       </mat-card-subtitle>
@@ -10,7 +13,7 @@
       <div fxFlex="20">
         <mat-form-field>
             <mat-label>Trading Platform</mat-label>
-            <mat-select>
+            <mat-select [(value)]="selectedPlatform">
                 <mat-option value="bitmex">BitMex</mat-option>
                 <mat-option value="kraken">Kraken</mat-option>
                 <mat-option value="Binance">Binance</mat-option>
@@ -20,10 +23,11 @@
       <div fxFlex="20">
           <mat-form-field>
               <mat-label>Default Loading Page</mat-label>
-              <mat-select>
+              <mat-select [(value)]="selectedPage">
                   <mat-option value="account">Account</mat-option>
                   <mat-option value="trade">Trade</mat-option>
                   <mat-option value="history">History</mat-option>
+                  <mat-option value="settings">Settings</mat-option>
               </mat-select>
           </mat-form-field>
         </div>
@@ -32,33 +36,47 @@
         <div fxFlex="20">
           <mat-form-field>
               <mat-label>Shuttle Theme</mat-label>
-              <mat-select>
+              <mat-select [(value)]="selectedTheme">
                   <mat-option value="dark">Dark</mat-option>
                   <mat-option value="light">Light</mat-option>
               </mat-select>
           </mat-form-field>
         </div>
-        <div fxflex="20">
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Log File Path">
-            </mat-form-field>
+        <div fxFlex="20">
+          <mat-form-field>
+              <mat-label>Default Side Bar State</mat-label>
+              <mat-select [(value)]="selectedSidebar">
+                  <mat-option value="descriptive">Descriptive</mat-option>
+                  <mat-option value="sleek">Sleek</mat-option>
+              </mat-select>
+          </mat-form-field>
         </div>
     </div>
     <h3 style="font-size: 20px;">Keys</h3>
     <div fxLayout="row">
       <div fxFlex="20">
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Name for Account">    
+          <mat-label>Account Platform</mat-label>
+          <mat-select [(value)]="accountPlatform">
+              <mat-option value="bitmex">BitMex</mat-option>
+              <mat-option value="kraken">Kraken</mat-option>
+              <mat-option value="Binance">Binance</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
       <div fxFlex="20">
           <mat-form-field class="example-full-width">
-              <input matInput placeholder="BITMEX API KEY">
+              <input [(ngModel)]="accountName" matInput placeholder="Name for Account">    
+          </mat-form-field>
+        </div>
+      <div fxFlex="20">
+          <mat-form-field class="example-full-width">
+              <input [(ngModel)]="apiKey" type="password" matInput placeholder="BITMEX API KEY">
           </mat-form-field>
       </div>
     </div>
     <mat-card-actions>
-        <a mat-raised-button routerLink=".">Save</a>
+        <a mat-raised-button (click)="saveConfiguration()">Save</a>
     </mat-card-actions>
   </mat-card-content>
 </mat-card>

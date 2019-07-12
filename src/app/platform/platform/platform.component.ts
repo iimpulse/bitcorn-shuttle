@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LocalSettingsService } from '../../providers/local-settings.service';
 import { ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-platform',
@@ -11,23 +12,34 @@ import { ViewEncapsulation } from '@angular/core';
 export class PlatformComponent implements OnInit {
 
   opened = true;
-  sidebarToggle = false;
+  sidebarToggle = true;
   theme: string;
-  constructor(private localConfigService: LocalSettingsService) { }
+  initialized: boolean = false;
+  constructor(private localConfigService: LocalSettingsService, private router: Router) {
+    this.localConfigService.getConfiguration()
+    .subscribe(config => {
+      this.sidebarToggle = config.defaultSidebar == 'descriptive' ? true: false;
+      this.theme = config.theme;
+      let defaultPage = config.defaultPage;
+      if(defaultPage !== 'trade' && !this.initialized) {
+        this.initialized = true;
+        this.router.navigate(["/platform/"+ defaultPage]);
+      }
+      
+    });
+   }
 
   ngOnInit() {
-    this.theme = this.localConfigService.getConfiguration().theme;
+  
   }
 
   toggleSidebar(): void {
     this.sidebarToggle = this.sidebarToggle !== true;
-    console.log(this.sidebarToggle);
   }
 
   isToggled(): any {
     if (this.sidebarToggle === true) {
       return 'toggled';
     }
-    return;
   }
 }
