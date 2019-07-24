@@ -23,6 +23,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class HomeComponent implements OnInit {
   displayedColumns: string[] = [ 'symbol', 'exchange', 'current', 'percentage'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
+  
   constructor() { }
 
   ngOnInit() {

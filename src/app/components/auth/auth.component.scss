@@ -37,8 +37,8 @@
 }
 
 .register-card {
-  width: 80%;
-  height: 80%;
+  width: 35rem;
+  height: 25rem;
   border-radius: 0;
   margin: 5% auto 0 auto;
   padding: 0;
@@ -51,5 +51,14 @@
     & .arrow {
       margin-bottom: 2px;
     }
+  }
+}
+
+.register-form {
+  align-items: center;
+
+  & .mat-form-field {
+    width: 20em;
+    text-align: center;
   }
 }

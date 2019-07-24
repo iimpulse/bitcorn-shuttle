@@ -1,12 +1,11 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ElectronService } from './providers/electron.service';
 import { TranslateService } from '@ngx-translate/core';
 import { AppConfig } from '../environments/environment';
-import {MatIconRegistry} from '@angular/material';
-import {DomSanitizer} from '@angular/platform-browser';
-import {Router} from '@angular/router';
-import {AuthService} from './components/auth/auth.service';
-import {Subscription} from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { AuthService } from './components/auth/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +15,7 @@ import {Subscription} from 'rxjs';
 export class AppComponent implements OnInit, OnDestroy {
   private userSubscription: Subscription;
   public user: any;
-
+  opened = true;
   constructor(public electronService: ElectronService, private authService: AuthService,
               private router: Router,
               private domSanitizer: DomSanitizer, private translate: TranslateService) {

@@ -1,7 +1,7 @@
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {RegisterComponent} from './components/auth/register/register.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 
 const routes: Routes = [
   {
@@ -9,11 +9,11 @@ const routes: Routes = [
         component: HomeComponent
   },
   {
-    path: 'trade',
-    loadChildren: 'app/platform/platform.module#PlatformModule'
+    path: 'platform',
+    loadChildren: () => import('app/platform/platform.module').then(m => m.PlatformModule)
   }, {
     path: 'admin',
-    loadChildren: 'app/components/admin/admin.module#AdminModule'
+    loadChildren: () => import('app/components/admin/admin.module').then(m => m.AdminModule)
   },
   {
     path: 'register',

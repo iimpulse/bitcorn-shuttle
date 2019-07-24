@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
     repeatPassword: new FormControl('', [Validators.required, this.passwordsMatchValidator])
-  })
+  });
 
   get username(): any { return this.userForm.get('username'); }
   get email(): any { return this.userForm.get('email'); }

@@ -1,0 +1,132 @@
+$dark-background-color: #3a3a3a;
+$dark-card-color: #585858;
+$dark-font-color: white;
+$dark-sidenav-color: #2a2a2b;
+
+$light-background-color:#c7c7c7; 
+$light-font-color: black;
+$light-sidenav-color: whitesmoke;
+
+
+
+.platform-container {
+  height: 100%;
+}
+
+.mat-sidenav {
+  width: 5%;
+
+  &.toggled {
+    width: 8%;
+  }
+
+  .mat-flat-button{
+    height: 4rem;
+    width: 100%;
+    border-radius: 0;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:first-child {
+      margin-top: 25px;
+    }
+    .material-icons{
+      font-size: 30px;
+    }
+
+    .sidebar-text {
+      font-size: 16px;
+      font-weight: bold;
+      margin-left: 15px;
+    }
+  }
+}
+
+.mat-sidenav-content{
+  padding: 15px;
+  margin-left: 5% !important;
+  &.toggled {
+    margin-left: 8% !important;
+  }
+}
+
+.dark {
+  color: $dark-font-color;
+
+  & .mat-sidenav {
+    background: $dark-sidenav-color;
+    color: $dark-font-color;
+
+    & .material-icons {
+      color: $dark-font-color;
+    }
+
+    & .sidebar-text {
+      color: $dark-font-color;
+    }
+
+    & .mat-flat-button {
+      background: $dark-sidenav-color;
+    }
+  }
+
+  &.mat-drawer-container {
+    background-color: $dark-background-color !important;
+  }
+
+  & .mat-drawer-content {
+    background: $dark-background-color !important;
+  }
+
+  & .mat-card {
+    color: $dark-font-color;
+    background: $dark-card-color;
+  }
+
+  & .mat-form-field-label, .mat-select-value-text, .mat-card-subtitle {
+    color: $dark-font-color;
+  }
+
+  & .mat-form-field-underline {
+    background-color: $dark-font-color;
+  }
+
+  & .mat-card-content {
+    padding: 15px;
+  }
+
+  & .mat-card-actions {
+    padding-top: 50px;
+  }
+}
+
+.light {
+  color: $light-font-color;
+
+  & .mat-sidenav {
+    background: $light-sidenav-color;
+    color: $light-font-color;
+
+    & .mat-flat-button {
+      background: $light-sidenav-color;
+    }
+  }
+
+  &.mat-drawer-container {
+    background-color: $light-background-color !important;
+  }
+
+  & .mat-drawer-content {
+    background: $light-background-color !important;
+  }
+
+  & .mat-card-content {
+    padding: 15px;
+  }
+
+  & .mat-card-actions {
+    padding-top: 50px;
+  }
+}
