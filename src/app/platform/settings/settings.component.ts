@@ -20,7 +20,6 @@ export class SettingsComponent implements OnInit {
   config: Configuration;
   loadingPage: any;
   success: boolean;
-  
   constructor(private localConfigService: LocalSettingsService) {
     this.localConfigService.getConfiguration()
     .subscribe(config => {
@@ -41,7 +40,7 @@ export class SettingsComponent implements OnInit {
   saveConfiguration() {
     // Build new configuration file from settings
     // Schema in models.ts
-    let newConfig = {
+    const newConfig = {
       defaultPage: this.selectedPage,
       defaultPlatform: this.selectedPlatform,
       defaultSidebar: this.selectedSidebar,
@@ -51,13 +50,11 @@ export class SettingsComponent implements OnInit {
         apiKey: this.apiKey,
         accountName: this.accountName
       }]
-    }
+    };
     this.localConfigService.saveConfiguration(newConfig);
     this.success = true;
     setTimeout(() => {
       this.success = false;
-    }, 1000);
+    }, 5000);
   }
-
-  // 
 }

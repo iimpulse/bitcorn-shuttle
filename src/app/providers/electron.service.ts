@@ -18,6 +18,8 @@ export class ElectronService {
   fs: typeof fs;
   path: typeof path;
   app: typeof app;
+  userDataPath: any;
+  userConfigFile: any;
 
   constructor(localConfigService: LocalSettingsService) {
     // Conditional imports
@@ -29,19 +31,32 @@ export class ElectronService {
       this.childProcess = window.require('child_process');
       this.fs = window.require('fs');
       this.path = window.require('path');
-      const userDataPath = (this.app || this.remote.app).getPath('userData');
+      this.userDataPath = (this.app || this.remote.app).getPath('userData');
       // We'll use the `configName` property to set the file name and path.join to bring it all together as a string
-      const filePath = this.path.join(userDataPath, 'shuttle.json');
-      localConfigService.loadConfigurations(this.parseConfigurationFile(filePath));
+      this.userConfigFile = this.path.join(this.userDataPath, 'shuttle.json');
+      console.log(this.userConfigFile);
+      localConfigService.saveConfiguration(this.parseConfigurationFile());
+      localConfigService.getConfiguration().subscribe(newConfig => {
+        this.saveConfigurationFile(newConfig);
+      });
     }
   }
 
-  parseConfigurationFile(filePath: string): any {
+  parseConfigurationFile(): any {
     try {
-      return JSON.parse(this.fs.readFileSync(filePath, 'utf8'));
+      return JSON.parse(this.fs.readFileSync(this.userConfigFile, 'utf8'));
     } catch (error) {
       // if there was some kind of error, return the passed in defaults instead.
       return '';
+    }
+  }
+
+  saveConfigurationFile(config) {
+    // write config to file
+    try {
+      this.fs.writeFileSync(this.userConfigFile, JSON.stringify(config));
+    } catch (error) {
+      console.error(error);
     }
   }
 

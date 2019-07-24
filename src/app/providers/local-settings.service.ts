@@ -1,6 +1,6 @@
 import {Injectable, OnInit} from '@angular/core';
-import { BehaviorSubject } from "rxjs";
-import { Configuration } from "../shared/models";
+import { BehaviorSubject } from 'rxjs';
+import { Configuration } from '../shared/models';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +11,7 @@ export class LocalSettingsService implements OnInit {
     defaultPlatform: '',
     defaultSidebar: 'descriptive',
     accounts: [{
-      accountPlatform: "",
+      accountPlatform: '',
       apiKey: '',
       accountName: '',
     }],
@@ -25,14 +25,13 @@ export class LocalSettingsService implements OnInit {
   ngOnInit() {
   }
 
-  saveConfiguration(config: any ){
-    this.$configuration.next(config);
+  saveConfiguration(config: any ) {
+    if (config !== '') {
+      this.$configuration.next(config);
+    }
   }
 
   getConfiguration(): BehaviorSubject<Configuration> {
     return this.$configuration;
-  }
-
-  getKrakenData(){
   }
 }

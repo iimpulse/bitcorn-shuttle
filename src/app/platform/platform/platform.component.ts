@@ -14,18 +14,17 @@ export class PlatformComponent implements OnInit {
   opened = true;
   sidebarToggle = true;
   theme: string;
-  initialized: boolean = false;
+  initialized = false;
   constructor(private localConfigService: LocalSettingsService, private router: Router) {
     this.localConfigService.getConfiguration()
     .subscribe(config => {
-      this.sidebarToggle = config.defaultSidebar == 'descriptive' ? true: false;
+      this.sidebarToggle = config.defaultSidebar === 'descriptive';
       this.theme = config.theme;
-      let defaultPage = config.defaultPage;
-      if(defaultPage !== 'trade' && !this.initialized) {
+      const defaultPage = config.defaultPage;
+      if (defaultPage !== 'trade' && !this.initialized) {
         this.initialized = true;
-        this.router.navigate(["/platform/"+ defaultPage]);
+        this.router.navigate(['/platform/' + defaultPage]);
       }
-      
     });
    }
 
