@@ -1,3 +1,20 @@
-<mat-card>
+<div class="trading-platform">
+  <!--mat-card class="quick-banner">
+    <div class="content-wrapper">
+      <div class="trading-details">
+        <span class="last-price">10456.7</span><br>
+      </div>
+      <button class="active-selection" mat-button (click)="showAccounts()"><i class="material-icons">memory</i></button>
+    </div>
+  </mat-card>-->
+  <mat-card class="tickers">
+    <mat-tab-group [selectedIndex]="selectedTicker" (selectedIndexChange)="selectedTicker.setValue($event)">
+      <mat-tab *ngFor="let ticker of tickers" [label]="ticker.viewValue"></mat-tab>
+    </mat-tab-group>
+  </mat-card>
 
-</mat-card>
+
+  <mat-card class="chart">
+    <app-tv-chart-container></app-tv-chart-container>
+  </mat-card>
+</div>

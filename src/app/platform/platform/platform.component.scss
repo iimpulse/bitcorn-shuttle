@@ -14,13 +14,6 @@ $light-sidenav-color: whitesmoke;
 .mat-sidenav {
   width: 5%;
 
-  &.toggled {
-    width: 8%;
-    .material-icons{
-      float: left;
-    }
-  }
-
   .mat-flat-button{
     height: 4rem;
     width: 100%;
@@ -33,17 +26,28 @@ $light-sidenav-color: whitesmoke;
     &:first-child {
       margin-top: 25px;
     }
-
-    .material-icons{
-      font-size: 30px;
+    .material-icons {
+      font-size: 28px;
+      margin-top: 8px;
     }
 
     .sidebar-text {
       font-size: 16px;
       font-weight: bold;
       margin-left: 15px;
+      float: left;
     }
   }
+
+  &.toggled {
+    width: 8%;
+    .material-icons{
+      float: left;
+      font-size: 20px;
+    }
+  }
+
+
 }
 
 .mat-sidenav-content{

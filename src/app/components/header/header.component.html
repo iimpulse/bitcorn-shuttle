@@ -12,5 +12,10 @@
         <button mat-button (click)="logout()">logout</button>
       </mat-menu>
     </div>
+    <mat-select *ngIf="showAccountSelection" [(ngModel)]="selectedAccount" (selectionChange)="onAccountChange()" #accountSelect class="account-select">
+      <mat-option *ngFor="let account of accounts" [value]="account">
+        {{account.accountName}}
+      </mat-option>
+    </mat-select>
   </mat-toolbar>
 </header>

@@ -19,15 +19,14 @@ import { WebviewDirective } from './directives/webview.directive';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
-import {SharedModule} from './shared/shared.module';
-import {AdminModule} from './components/admin/admin.module';
-import {PlatformModule} from './platform/platform.module';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {LoginComponent} from './components/auth/login/login.component';
-import {RegisterComponent} from './components/auth/register/register.component';
-import {AuthService} from './components/auth/auth.service';
-import {TokenStorage} from './components/auth/token.storage';
-import {LocalSettingsService} from './providers/local-settings.service';
+import { SharedModule } from './shared/shared.module';
+import { AdminModule } from './components/admin/admin.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { AuthService } from './components/auth/auth.service';
+import { TokenStorage } from './components/auth/token.storage';
+import { LocalSettingsService } from './providers/local-settings.service';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 // AoT requires an exported function for factories
@@ -61,8 +60,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [ElectronService, AuthService,
-    TokenStorage, LocalSettingsService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [ElectronService, AuthService, TokenStorage,
+    LocalSettingsService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -74,3 +74,23 @@ body {
 }
 
 
+.trading-platform {
+  .mat-tab-label {
+    color: white !important;
+    font-weight: bold !important;
+    padding: 0 10px !important;
+    min-width: 140px !important;
+  }
+
+  .mat-ink-bar {
+    background-color: #c8da42 !important;
+    width: 120px;
+  }
+
+  .mat-tab-body-wrapper {
+    display: none !important;
+  }
+}
+
+
+

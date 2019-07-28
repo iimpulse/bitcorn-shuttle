@@ -28,17 +28,5 @@ export class PlatformComponent implements OnInit {
     });
    }
 
-  ngOnInit() {
-  
-  }
-
-  toggleSidebar(): void {
-    this.sidebarToggle = this.sidebarToggle !== true;
-  }
-
-  isToggled(): any {
-    if (this.sidebarToggle === true) {
-      return 'toggled';
-    }
-  }
+  ngOnInit() {}
 }

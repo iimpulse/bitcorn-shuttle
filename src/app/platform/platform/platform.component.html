@@ -15,16 +15,6 @@
     <button [routerLink]="['/platform/settings']" mat-flat-button><i class="material-icons">settings</i>
       <span [hidden]="!sidebarToggle" class="sidebar-text">Settings</span>
     </button>
-    <div>
-      <button (click)="toggleSidebar()" mat-flat-button>
-        <i *ngIf="!sidebarToggle" class="material-icons">
-            keyboard_arrow_right
-        </i>
-        <i *ngIf="sidebarToggle" class="material-icons">
-          keyboard_arrow_left
-        </i>
-      </button>
-    </div>
   </mat-sidenav>
   <mat-sidenav-content [ngClass]="{'toggled': sidebarToggle}">
       <router-outlet></router-outlet>

@@ -1,0 +1,68 @@
+.quick-banner {
+  max-height: 50px;
+  margin-top: -15px;
+  margin-right: -15px;
+  background-color: #2a2a2b !important;
+  width: 25%;
+  padding: 5px;
+  position: unset;
+
+  & .content-wrapper {
+    height: 60px;
+    & .trading-details {
+      padding-bottom: 15px;
+      padding-top: 10px;
+      float: left;
+      width: fit-content;
+      margin-right: 25%;
+      & .last-price {
+        font-size: 26px;
+      }
+    }
+  }
+
+  .active-selection {
+    float: right;
+    margin: 5px 0 0 0;
+  }
+
+  .mat-form-field {
+    font-size: 12px !important;
+    width: 125px !important;
+  }
+};
+
+.trading-platform {
+  margin-top: -15px;
+
+  & .tickers.mat-card {
+    padding: 5px 0 0 0 !important;
+    margin: 0 auto;
+    max-width: fit-content;
+  }
+
+  & .chart.mat-card {
+    width: fit-content;
+    padding: 5px;
+    margin-top: 10px;
+  }
+}
+
+
+
+/*.mat-card:after {
+  border-color: transparent;
+  margin-top: -20px;
+  margin-left: -10px;
+  border-width: 2.5em;
+  content: '';
+  border-style: solid;
+  border-bottom-color: #3a3a3a;
+  border-bottom-width: -1em;
+  border-right-color: #3a3a3a ;
+  position: absolute;
+}*/
+
+
+
+

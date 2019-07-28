@@ -24,7 +24,7 @@ header {
       }
     }
     .mat-toolbar {
-      background: linear-gradient(to right, black, #74803a, #c8da42);
+      background: linear-gradient(to left, black, #313131, #053448);
     }
     .mat-icon {
       vertical-align: middle;
@@ -33,4 +33,9 @@ header {
     a {
       cursor: pointer;
     }
+
+  .account-select {
+    width: 12% !important;
+    float: right;
   }
+}

@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { LocalSettingsService } from '../../providers/local-settings.service';
+import { Configuration, Account } from '../../shared/models';
+import {filter} from 'rxjs/operators';
 
 
 @Component({
@@ -10,12 +13,37 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   @Input() user: any = {};
-
+  configuration: Configuration;
+  accounts: Account[];
+  selectedAccount;
+  showAccountSelection = false;
   constructor(
+    private localSettingsService: LocalSettingsService,
     private router: Router
-  ) { }
+  ) {
+
+    this.localSettingsService.getAccounts().subscribe(acts => {
+      this.accounts = acts;
+    });
+
+    router.events.pipe(
+      filter((event: any) => event instanceof NavigationEnd)
+    )
+      .subscribe(event => {
+        if (event.url !== '/') {
+          this.showAccountSelection = true;
+        } else {
+          this.showAccountSelection = false;
+        }
+      });
+  }
 
   ngOnInit() {
+
+  }
+
+  onAccountChange() {
+    this.localSettingsService.updateSelectedAccount(this.selectedAccount);
   }
 
   logout(): void {
